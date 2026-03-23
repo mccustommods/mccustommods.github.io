@@ -1,0 +1,268 @@
+/* au.css - Glassy About Us Theme */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: radial-gradient(circle at top right, #1a4d1a, #0f3d0f, #051a05);
+    color: #e8f5e9;
+    margin: 0;
+    font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+    min-height: 100vh;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 120px;
+    height: 100vh;
+    background: linear-gradient(90deg, #0d2d0d 0%, #1a4d1a 50%, transparent 100%);
+    pointer-events: none;
+    z-index: 5;
+    opacity: 0.4;
+}
+
+/* Glassy Navigation (Consistent across all pages) */
+.top-nav {
+    background: rgba(15, 61, 15, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 1.2rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(127, 194, 15, 0.1);
+}
+
+.nav-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+}
+
+.nav-container a {
+    color: #7fc20f;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: 0.3s;
+    opacity: 0.8;
+}
+
+.nav-container a:hover {
+    opacity: 1;
+    color: #9ccc65;
+    text-shadow: 0 0 15px rgba(127, 194, 15, 0.6);
+}
+
+/* About Us Wrapper */
+.au-wrapper {
+    max-width: 900px;
+    margin: 80px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.au-wrapper h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    background: linear-gradient(to bottom, #c8e6c9, #7fc20f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.au-wrapper p {
+    color: #a1d084;
+    font-size: 1.1rem;
+    margin-bottom: 50px;
+}
+
+/* Team Grid */
+.team-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.member-box {
+    background: rgba(127, 194, 15, 0.05);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(127, 194, 15, 0.2);
+    padding: 50px 30px;
+    border-radius: 32px;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.member-box:hover {
+    transform: translateY(-15px);
+    background: rgba(127, 194, 15, 0.15);
+    border-color: rgba(156, 204, 101, 0.8);
+    box-shadow: 0 30px 60px rgba(127, 194, 15, 0.3);
+}
+
+.member-box h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+/* Role Label */
+.role-pill {
+    display: inline-block;
+    color: #7fc20f;
+    border: 1px solid rgba(127, 194, 15, 0.5);
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: rgba(127, 194, 15, 0.15);
+}
+
+footer {
+    text-align: center;
+    padding: 3rem;
+    color: #495670;
+    font-size: 0.9rem;
+}
+/* au.css - Contact Section Addition */
+.contact-section { margin-top: 80px; padding-bottom: 50px; text-align: center; }
+.contact-section h1 { margin-bottom: 30px; color: #7fc20f; }
+
+.contact-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.contact-card {
+    background: rgba(127, 194, 15, 0.08);
+    border: 1px solid rgba(127, 194, 15, 0.3);
+    padding: 20px;
+    border-radius: 15px;
+    min-width: 250px;
+}
+
+.contact-card h4 { margin: 0 0 5px 0; font-size: 0.9rem; color: #a1d084; text-transform: uppercase; }
+
+.contact-card a {
+    color: #7fc20f;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: 0.3s;
+    padding: 8px 16px;
+    background: rgba(127, 194, 15, 0.2);
+    border-radius: 6px;
+    display: inline-block;
+}
+
+.contact-card a:hover { color: #fff; background: #7fc20f; box-shadow: 0 0 15px rgba(127, 194, 15, 0.6); }
+
+/* Theme Switcher Icon */
+.theme-icon {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: #7fc20f;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 999;
+    box-shadow: 0 4px 15px rgba(127, 194, 15, 0.4);
+    transition: all 0.3s ease;
+}
+
+.theme-icon:hover {
+    background: #9ccc65;
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(127, 194, 15, 0.6);
+}
+
+.theme-modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+}
+
+.theme-modal-overlay.active {
+    display: block;
+}
+
+.theme-modal {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    background: rgba(15, 61, 15, 0.95);
+    border: 2px solid #7fc20f;
+    border-radius: 12px;
+    padding: 20px;
+    z-index: 1001;
+    min-width: 200px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    display: none;
+}
+
+.theme-modal.active {
+    display: block;
+}
+
+.theme-modal h3 {
+    margin: 0 0 15px 0;
+    color: #9ccc65;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.theme-option {
+    display: block;
+    width: 100%;
+    padding: 12px 15px;
+    margin: 8px 0;
+    background: rgba(127, 194, 15, 0.2);
+    color: #7fc20f;
+    border: 1px solid rgba(127, 194, 15, 0.5);
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.theme-option:hover {
+    background: #7fc20f;
+    color: #051a05;
+    box-shadow: 0 0 10px rgba(127, 194, 15, 0.6);
+}
+
+.theme-option.active {
+    background: #7fc20f;
+    color: #051a05;
+    border-color: #9ccc65;
+}

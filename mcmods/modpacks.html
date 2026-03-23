@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse Modpacks</title>
+    <script>
+
+        const theme = localStorage.getItem('theme') || 'darkify';
+        document.write(`<link id="theme-css" rel="stylesheet" href="ui/${theme}/modpacks.css">`);
+
+        const bgColors = { greenify: '#1a4d1a', bluedify: '#102a43', darkify: '#1a1a1a' };
+        document.write(`<style>body { background: ${bgColors[theme] || '#1a1a1a'} !important; }</style>`);
+    </script>
+</head>
+<body>
+
+<nav class="top-nav">
+    <div class="nav-container">
+        <a href="index.html">Main</a>
+        <a href="modpacks.html">Modpacks</a>
+        <a href="sp.html">Shaders</a>
+        <a href="rtp.html">Resourse/texture pack</a>
+        <a href="ml.html">Modloaders</a>
+        <a href="au.html">About Us</a>
+    </div>
+</nav>
+
+<script>
+function switchTheme(theme) {
+    localStorage.setItem('theme', theme);
+    document.getElementById('theme-css').href = 'ui/' + theme + '/modpacks.css';
+    updateActiveOption();
+    closeThemeModal();
+}
+
+function toggleThemeModal() {
+    const modal = document.getElementById('themeModal');
+    const overlay = document.getElementById('themeOverlay');
+    modal.classList.toggle('active');
+    overlay.classList.toggle('active');
+}
+
+function closeThemeModal() {
+    const modal = document.getElementById('themeModal');
+    const overlay = document.getElementById('themeOverlay');
+    modal.classList.remove('active');
+    overlay.classList.remove('active');
+}
+
+function updateActiveOption() {
+    const activeTheme = localStorage.getItem('theme') || 'darkify';
+    document.querySelectorAll('.theme-option').forEach(option => {
+        option.classList.remove('active');
+        if (option.textContent.toLowerCase() === activeTheme.replace('ify', '')) {
+            option.classList.add('active');
+        }
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    updateActiveOption();
+    
+    document.getElementById('themeIcon').addEventListener('click', toggleThemeModal);
+    document.getElementById('themeOverlay').addEventListener('click', closeThemeModal);
+});
+</script>
+
+<hr class="divider">
+
+<section class="filter-controls">
+    <input type="text" id="searchInput" placeholder="Search modpacks..." onkeyup="filterModpacks()">
+    <select id="categoryFilter" onchange="filterModpacks()">
+        <option value="all">All Categories</option>
+        <option value="horror">Horror</option>
+        <option value="survival">Survival</option>
+        <option value="adventure">Adventure</option>
+        <option value="apocalypse">Apocalypse</option>
+        <option value="hard">Hard</option>
+        <option value="optimized">Optimized</option>
+    </select>
+</section>
+
+<section class="modpack-list" id="modpackList">
+    <div class="modpack-card" data-category="horror">
+        <h2>Super horror</h2>
+        <div class="tag-container">
+            <span class="version-tag">NeoForge, 1.21.1</span>
+            <span class="essential-tag">Contains Essential mod</span>
+        </div>
+        <p>Try to survive while fighting with 6 horror mods.</p>
+        <a href="https://github.com/mccustommods/mccustommods-host-downloads/releases/download/mentality/-mentality.zip" class="download-btn">Download</a>
+    </div>
+
+    <div class="modpack-card" data-category="optimized">
+        <h2>Optimized Vanilla</h2>
+        <div class="tag-container">
+            <span class="version-tag">Fabric/Forge/NeoForge, 1.20.1/1.21/1.21.1</span>
+        </div>
+        <p>Modpack for optimizing your FPS.</p>
+        <p class="note">Note: optimizing may not be seen with shaders.</p>
+        <a href="https://github.com/mccustommods/mccustommods-host-downloads/releases/download/optimized-vanilla/optimize+.zip" class="download-btn">Download</a>
+    </div>
+
+    <div class="modpack-card" data-category="survival">
+        <h2>Optimized Survival</h2>
+        <div class="tag-container">
+            <span class="version-tag">Fabric, 1.21</span>
+            <span class="essential-tag">Contains Essential mod</span>
+        </div>
+        <p>Modpack just for normal survival.</p>
+        <a href="https://github.com/mccustommods/mccustommods-host-downloads/releases/download/optimal-survival/optimal-survival.zip" class="download-btn">Download</a>
+    </div>
+
+    <div class="modpack-card" data-category="apocalypse">
+        <h2>Zombie Apocalypse</h2>
+        <div class="tag-container">
+            <span class="version-tag">Forge, 1.20.1</span>
+            <span class="essential-tag">Contains Essential mod</span>
+        </div>
+        <p>Survive evolved zombies.</p>
+        <a href="https://github.com/mccustommods/mccustommods-host-downloads/releases/download/zombie-2/Zombie.Apocaylpse.zip" class="download-btn">Download</a>
+    </div>
+
+    <div class="modpack-card" data-category="hard">
+        <h2>Island Escape</h2>
+        <div class="tag-container">
+            <span class="version-tag">Forge, 1.20.1</span>
+            <span class="essential-tag">Contains Essential mod</span>
+        </div>
+        <p>Try to escape the island.</p>
+        <a href="https://github.com/mccustommods/mccustommods-host-downloads/releases/download/Island-Survival/eisland-20260322T163822Z-1-001.zip" class="download-btn">Download</a>
+    </div>
+
+    <div class="modpack-card" data-category="horror">
+        <h2>The Last Of Us Zombies</h2>
+        <div class="tag-container">
+            <span class="version-tag">Forge, 1.20.1</span>
+            <span class="essential-tag">Contains Essential mod</span>
+        </div>
+        <p>Zombies but TLOU style.</p>
+        <a href="https://github.com/mccustommods/mccustommods-host-downloads/releases/download/zombie/whatinyourheadZOMBIE.zip" class="download-btn">Download</a>
+    </div>
+
+    <div class="modpack-card" data-category="horror">
+        <h2>Horror Escape</h2>
+        <div class="tag-container">
+            <span class="version-tag">Forge, 1.20.1</span>
+            <span class="essential-tag">Contains Essential mod</span>
+        </div>
+        <p>Try to escape the cursed world using an airship.</p>
+        <a href="https://github.com/mccustommods/mccustommods-host-downloads/releases/download/horror-escape/horror.escape+.zip" class="download-btn">Download</a>
+    </div>
+</section>
+                 <!-- femboy -->
+<script>
+function filterModpacks() {
+    let input = document.getElementById('searchInput').value.toLowerCase();
+    let category = document.getElementById('categoryFilter').value;
+    let cards = document.getElementsByClassName('modpack-card');
+
+    for (let card of cards) {
+        let title = card.querySelector('h2').innerText.toLowerCase();
+        let cardCat = card.getAttribute('data-category');
+        let matchesSearch = title.includes(input);
+        let matchesCategory = (category === 'all' || cardCat === category);
+        card.style.display = (matchesSearch && matchesCategory) ? "block" : "none";
+    }
+}
+</script>
+
+<div class="theme-modal-overlay" id="themeOverlay"></div>
+<div class="theme-icon" id="themeIcon">⚙️</div>
+<div class="theme-modal" id="themeModal">
+    <h3>Choose Theme</h3>
+    <button class="theme-option" onclick="switchTheme('greenify')">Green</button>
+    <button class="theme-option" onclick="switchTheme('bluedify')">Blue</button>
+    <button class="theme-option" onclick="switchTheme('darkify')">Dark</button>
+</div>
+</body>
+</html>

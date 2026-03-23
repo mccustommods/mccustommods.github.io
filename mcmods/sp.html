@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shader Packs</title>
+    <script>
+
+        const theme = localStorage.getItem('theme') || 'darkify';
+        document.write(`<link id="theme-css" rel="stylesheet" href="ui/${theme}/sp.css">`);
+
+        const bgColors = { greenify: '#1a4d1a', bluedify: '#102a43', darkify: '#1a1a1a' };
+        document.write(`<style>body { background: ${bgColors[theme] || '#1a1a1a'} !important; }</style>`);
+    </script>
+</head>
+<body>
+
+<nav class="top-nav">
+    <div class="nav-container">
+        <a href="index.html">Main</a>
+        <a href="modpacks.html">Modpacks</a>
+        <a href="sp.html">Shaders</a>
+        <a href="rtp.html">Resource/texture pack</a>
+        <a href="ml.html">Modloaders</a>
+        <a href="au.html">About Us</a>
+    </div>
+</nav>
+
+<script>
+function switchTheme(theme) {
+    localStorage.setItem('theme', theme);
+    document.getElementById('theme-css').href = 'ui/' + theme + '/sp.css';
+    updateActiveOption();
+    closeThemeModal();
+}
+
+function toggleThemeModal() {
+    const modal = document.getElementById('themeModal');
+    const overlay = document.getElementById('themeOverlay');
+    modal.classList.toggle('active');
+    overlay.classList.toggle('active');
+}
+
+function closeThemeModal() {
+    const modal = document.getElementById('themeModal');
+    const overlay = document.getElementById('themeOverlay');
+    modal.classList.remove('active');
+    overlay.classList.remove('active');
+}
+
+function updateActiveOption() {
+    const activeTheme = localStorage.getItem('theme') || 'darkify';
+    document.querySelectorAll('.theme-option').forEach(option => {
+        option.classList.remove('active');
+        if (option.textContent.toLowerCase() === activeTheme.replace('ify', '')) {
+            option.classList.add('active');
+        }
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    updateActiveOption();
+    
+    document.getElementById('themeIcon').addEventListener('click', toggleThemeModal);
+    document.getElementById('themeOverlay').addEventListener('click', closeThemeModal);
+});
+</script>
+
+<hr class="divider">
+
+<div class="page-container">                   <!-- femboy -->
+    <header class="section-header">
+        <h1>Shader Selection</h1>
+        <p>Hand-picked shaders optimized for stability and visuals.</p>
+    </header>
+
+    <section class="shader-list">
+
+     <div class="shader-card">                                            <!--shitpacks builds-->
+         <h2>Shader pack build</h2>
+            
+         <div class="tag-container">
+              <span class="range-tag">Range: low-really high</span>
+             <span class="feature-tag">Various of shaders</span>
+         </div>
+
+         <p class="about-text">
+                The gold standard for Minecraft shaders. This shader pack contains various shaders optimized for different pcs, and you can choose which one to use.
+         </p>
+            
+            <a href="https://github.com/mccustommods/mccustommods-host-downloads/releases/download/shaders/shaderpacks.zip" class="download-btn">Download</a>
+        </div>
+    
+    </section>
+</div>
+
+<div class="theme-modal-overlay" id="themeOverlay"></div>
+<div class="theme-icon" id="themeIcon">⚙️</div>
+<div class="theme-modal" id="themeModal">
+    <h3>Choose Theme</h3>
+    <button class="theme-option" onclick="switchTheme('greenify')">Green</button>
+    <button class="theme-option" onclick="switchTheme('bluedify')">Blue</button>
+    <button class="theme-option" onclick="switchTheme('darkify')">Dark</button>
+</div>
+</body>
+</html>
