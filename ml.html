@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modloaders | Minecraft</title>
+    <link rel="stylesheet" href="ui/style.css">
+    <script src="ui/main.js" defer></script>
+</head>
+<body>
+<div class="page-shell">
+    <nav class="top-nav">
+        <div class="nav-inner">
+            <a class="brand" href="index.html"></a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="modpacks.html">Modpacks</a>
+                <a href="sp.html">Shaders</a>
+                <a href="rtp.html">Resource Pack</a>
+                <a class="active" href="ml.html">Modloaders</a>
+                <a href="au.html">About Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <section class="hero-panel">
+            <div class="page-header">
+                <h1>Download Modloaders</h1>
+                <p>Install the right engine for your pack and keep every download working smoothly.</p>
+            </div>
+
+            <div class="filter-panel">
+                <select id="sortSelect" onchange="sortModloaders()">
+                    <option value="none">Sort by</option>
+                    <option value="name-asc">Name A → Z</option>
+                    <option value="name-desc">Name Z → A</option>
+                    <option value="version-asc">Version ↑</option>
+                    <option value="version-desc">Version ↓</option>
+                    <option value="genre">Genre</option>
+                </select>
+                <select id="genreFilter" onchange="sortModloaders()">
+                    <option value="all">All genres</option>
+                    <option value="legacy">Legacy</option>
+                    <option value="modern">Modern</option>
+                    <option value="lightweight">Lightweight</option>
+                </select>
+            </div>
+
+            <div class="ml-grid">
+                <article class="ml-card" data-version="1.20.1" data-genre="legacy">
+                    <div class="card-content">
+                        <h2>Forge</h2>
+                        <div class="tag-row">
+                            <span class="feature-tag">Genre: Legacy</span>
+                        </div>
+                        <p class="ml-ver">1.20.1</p>
+                        <a class="ml-btn" href="https://files.minecraftforge.net/net/minecraftforge/forge/index_1.20.1.html">Download Installer</a>
+                    </div>
+                </article>
+                <article class="ml-card" data-version="1.21.1" data-genre="modern">
+                    <div class="card-content">
+                        <h2>NeoForge</h2>
+                        <div class="tag-row">
+                            <span class="feature-tag">Genre: Modern</span>
+                        </div>
+                        <p class="ml-ver">1.21.1</p>
+                        <a class="ml-btn" href="https://neoforged.net/">Download Installer</a>
+                    </div>
+                </article>
+                <article class="ml-card" data-version="1.21" data-genre="lightweight">
+                    <div class="card-content">
+                        <h2>Fabric</h2>
+                        <div class="tag-row">
+                            <span class="feature-tag">Genre: Lightweight</span>
+                        </div>
+                        <p class="ml-ver">1.21</p>
+                        <a class="ml-btn" href="https://fabricmc.net/">Download Installer</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">© 2026 Mccustommods · Fast, easy modloader downloads for every pack.</footer>
+</div>
+
+<div class="theme-modal-overlay" id="themeOverlay"></div>
+<button class="theme-icon" id="themeIcon" aria-label="Open theme switcher">⚙️</button>
+<div class="theme-modal" id="themeModal">
+    <h3>Choose Theme</h3>
+    <button class="theme-option" data-theme="greenify">Green</button>
+    <button class="theme-option" data-theme="bluedify">Blue</button>
+    <button class="theme-option" data-theme="darkify">Dark</button>
+    <button class="theme-option" data-theme="whitify">White</button>
+</div>
+</body>
+</html>

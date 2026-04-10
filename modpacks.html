@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse Modpacks</title>
+    <link rel="stylesheet" href="ui/style.css">
+    <script src="ui/main.js" defer></script>
+</head>
+<body>
+<div class="page-shell">
+    <nav class="top-nav">
+        <div class="nav-inner">
+            <a class="brand" href="index.html"></a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a class="active" href="modpacks.html">Modpacks</a>
+                <a href="sp.html">Shaders</a>
+                <a href="rtp.html">Resource Pack</a>
+                <a href="ml.html">Modloaders</a>
+                <a href="au.html">About Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <section class="hero-panel">
+            <div class="page-header">
+                <h1>Browse Modpacks</h1>
+                <p>Search, filter, and download the most polished Minecraft modpacks in one beautiful hub.</p>
+            </div>
+
+            <div class="filter-panel">
+                <input id="searchInput" type="text" placeholder="Search modpacks..." onkeyup="sortModpacks()">
+                <select id="sortSelect" onchange="sortModpacks()">
+                    <option value="none">Sort by</option>
+                    <option value="name-asc">Name A → Z</option>
+                    <option value="name-desc">Name Z → A</option>
+                    <option value="version-asc">Version ↑</option>
+                    <option value="version-desc">Version ↓</option>
+                    <option value="modloader">Modloader</option>
+                    <option value="genre">Genre</option>
+                </select>
+                <select id="categoryFilter" onchange="sortModpacks()">
+                    <option value="all">All Genres</option>
+                    <option value="horror">Horror</option>
+                    <option value="survival">Survival</option>
+                    <option value="adventure">Adventure</option>
+                    <option value="apocalypse">Apocalypse</option>
+                    <option value="hard">Hard</option>
+                    <option value="optimized">Optimized</option>
+                    <option value="builder">Builder</option>
+                </select>
+                <select id="modloaderFilter" onchange="sortModpacks()">
+                    <option value="all">All Loaders</option>
+                    <option value="Forge">Forge</option>
+                    <option value="NeoForge">NeoForge</option>
+                    <option value="Fabric">Fabric</option>
+                    <option value="Multi">Multi</option>
+                </select>
+            </div>
+        </section>
+
+        <section class="modpack-grid" id="modpackList">
+            <article class="modpack-card" data-category="builder" data-genre="builder" data-modloader="Forge" data-version="1.20.1">
+                <img src="assets/builder-pack.png" alt="Builder Pack">
+                <div class="card-content">
+                    <h2>Builder Pack</h2>
+                    <div class="tag-row">
+                        <span class="version-tag">Forge, 1.20.1</span>
+                        <span class="feature-tag">Essential mods included</span>
+                    </div>
+                    <p class="card-copy">A creative city-builder pack with everything needed to craft, build, and thrive.</p>
+                    <p class="note">Note: Full-city support and premium building tools are included.</p>
+                    <a class="download-btn" href="https://github.com/mccustommods/mccustommods-host-downloads/releases/download/builder-pack/Builder-pack.zip">Download</a>
+                </div>
+            </article>
+
+            <article class="modpack-card" data-category="horror" data-genre="horror" data-modloader="Forge" data-version="1.20.1">
+                <img src="assets/super-horror-plus.png" alt="Super Horror+">
+                <div class="card-content">
+                    <h2>Super Horror+</h2>
+                    <div class="tag-row">
+                        <span class="version-tag">Forge, 1.20.1</span>
+                        <span class="feature-tag">Intense atmosphere</span>
+                    </div>
+                    <p class="card-copy">Survive terrifying nights with a carefully crafted horror experience.</p>
+                    <p class="note">Note: Player discretion advised for horror content.</p>
+                    <a class="download-btn" href="https://github.com/mccustommods/mccustommods-host-downloads/releases/download/minusplusmentality/-mentality+.zip">Download</a>
+                </div>
+            </article>
+
+            <article class="modpack-card" data-category="horror" data-genre="horror" data-modloader="NeoForge" data-version="1.21.1">
+                <img src="assets/super-horror.png" alt="Super Horror">
+                <div class="card-content">
+                    <h2>Super Horror</h2>
+                    <div class="tag-row">
+                        <span class="version-tag">NeoForge, 1.21.1</span>
+                        <span class="feature-tag">Creepy gameplay</span>
+                    </div>
+                    <p class="card-copy">Face six horror mods designed to keep you on edge through every moment.</p>
+                    <a class="download-btn" href="https://github.com/mccustommods/mccustommods-host-downloads/releases/download/mentality/-mentality.zip">Download</a>
+                </div>
+            </article>
+
+            <article class="modpack-card" data-category="optimized" data-genre="optimized" data-modloader="Multi" data-version="1.21.1">
+                <img src="assets/optimized-vanilla.png" alt="Optimized Vanilla">
+                <div class="card-content">
+                    <h2>Optimized Vanilla</h2>
+                    <div class="tag-row">
+                        <span class="version-tag">Fabric / Forge / NeoForge, 1.20.1 / 1.21 / 1.21.1</span>
+                    </div>
+                    <p class="card-copy">A performance-first pack that keeps vanilla vibes while boosting FPS.</p>
+                    <p class="note">Note: Best suited for players who want smooth gameplay over extreme shaders.</p>
+                    <a class="download-btn" href="https://github.com/mccustommods/mccustommods-host-downloads/releases/download/optimized-vanilla/optimize+.zip">Download</a>
+                </div>
+            </article>
+
+            <article class="modpack-card" data-category="survival" data-genre="survival" data-modloader="Fabric" data-version="1.21">
+                <img src="assets/Optimized-survival.png" alt="Optimized Survival">
+                <div class="card-content">
+                    <h2>Optimized Survival</h2>
+                    <div class="tag-row">
+                        <span class="version-tag">Fabric, 1.21</span>
+                        <span class="feature-tag">Steady progression</span>
+                    </div>
+                    <p class="card-copy">A polished, comfortable survival pack that streamlines fun without losing challenge.</p>
+                    <a class="download-btn" href="https://github.com/mccustommods/mccustommods-host-downloads/releases/download/optimal-survival/optimal-survival.zip">Download</a>
+                </div>
+            </article>
+
+            <article class="modpack-card" data-category="apocalypse" data-genre="apocalypse" data-modloader="Forge" data-version="1.20.1">
+                <img src="assets/zombie-apocalypse.png" alt="Zombie Apocalypse">
+                <div class="card-content">
+                    <h2>Zombie Apocalypse</h2>
+                    <div class="tag-row">
+                        <span class="version-tag">Forge, 1.20.1</span>
+                        <span class="feature-tag">Undead survival</span>
+                    </div>
+                    <p class="card-copy">Hold the line against evolving zombie threats in this intense apocalypse bundle.</p>
+                    <a class="download-btn" href="https://github.com/mccustommods/mccustommods-host-downloads/releases/download/zombie-2/Zombie.Apocaylpse.zip">Download</a>
+                </div>
+            </article>
+
+            <article class="modpack-card" data-category="hard" data-genre="hard" data-modloader="Forge" data-version="1.20.1">
+                <img src="assets/island-escape.png" alt="Island Escape">
+                <div class="card-content">
+                    <h2>Island Escape</h2>
+                    <div class="tag-row">
+                        <span class="version-tag">Forge, 1.20.1</span>
+                        <span class="feature-tag">Hard survival</span>
+                    </div>
+                    <p class="card-copy">Test your survival skills while trying to escape a dangerous island environment.</p>
+                    <a class="download-btn" href="https://github.com/mccustommods/mccustommods-host-downloads/releases/download/Island-Survival/eisland-20260322T163822Z-1-001.zip">Download</a>
+                </div>
+            </article>
+
+            <article class="modpack-card" data-category="horror" data-genre="horror" data-modloader="Forge" data-version="1.20.1">
+                <img src="assets/tlou.png" alt="The Last Of Us Zombies">
+                <div class="card-content">
+                    <h2>The Last Of Us Zombies</h2>
+                    <div class="tag-row">
+                        <span class="version-tag">Forge, 1.20.1</span>
+                        <span class="feature-tag">Survival horror</span>
+                    </div>
+                    <p class="card-copy">A tense pack inspired by the atmosphere and danger of The Last of Us.</p>
+                    <a class="download-btn" href="https://github.com/mccustommods/mccustommods-host-downloads/releases/download/zombie/whatinyourheadZOMBIE.zip">Download</a>
+                </div>
+            </article>
+
+            <article class="modpack-card" data-category="horror" data-genre="horror" data-modloader="Forge" data-version="1.20.1">
+                <img src="assets/horror-escape.png" alt="Horror Escape">
+                <div class="card-content">
+                    <h2>Horror Escape</h2>
+                    <div class="tag-row">
+                        <span class="version-tag">Forge, 1.20.1</span>
+                        <span class="feature-tag">Cursed airship</span>
+                    </div>
+                    <p class="card-copy">Escape a haunted airship while exploring cursed skies and hidden horrors.</p>
+                    <a class="download-btn" href="https://github.com/mccustommods/mccustommods-host-downloads/releases/download/horror-escape/horror.escape+.zip">Download</a>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <footer class="footer">© 2026 Mccustommods · Your gateway to premium Minecraft modpacks.</footer>
+</div>
+
+<div class="theme-modal-overlay" id="themeOverlay"></div>
+<button class="theme-icon" id="themeIcon" aria-label="Open theme switcher">⚙️</button>
+<div class="theme-modal" id="themeModal">
+    <h3>Choose Theme</h3>
+    <button class="theme-option" data-theme="greenify">Green</button>
+    <button class="theme-option" data-theme="bluedify">Blue</button>
+    <button class="theme-option" data-theme="darkify">Dark</button>
+    <button class="theme-option" data-theme="whitify">White</button>
+</div>
+</body>
+</html>
