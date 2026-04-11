@@ -32,20 +32,10 @@
 
             <div class="filter-panel">
                 <input id="searchInput" type="text" placeholder="Search modpacks..." onkeyup="sortModpacks()">
-                <select id="sortSelect" onchange="sortModpacks()">
-                    <option value="none">Sort by</option>
-                    <option value="name-asc">Name A → Z</option>
-                    <option value="name-desc">Name Z → A</option>
-                    <option value="version-asc">Version ↑</option>
-                    <option value="version-desc">Version ↓</option>
-                    <option value="modloader">Modloader</option>
-                    <option value="genre">Genre</option>
-                </select>
                 <select id="categoryFilter" onchange="sortModpacks()">
                     <option value="all">All Genres</option>
                     <option value="horror">Horror</option>
                     <option value="survival">Survival</option>
-                    <option value="adventure">Adventure</option>
                     <option value="apocalypse">Apocalypse</option>
                     <option value="hard">Hard</option>
                     <option value="optimized">Optimized</option>
